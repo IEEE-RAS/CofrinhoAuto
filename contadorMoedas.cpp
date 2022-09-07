@@ -1,5 +1,3 @@
-// C++ code
-//
 #include <LiquidCrystal.h>
 // definições das portas LCD
 LiquidCrystal lcd(4,5,6,7,8,9,10);
@@ -7,10 +5,6 @@ LiquidCrystal lcd(4,5,6,7,8,9,10);
 int contUm = 0;
 int contDois = 0;
 int contTres = 0;
-// variaveis que auxiliaram no limitador de contagem 
-int i = 0;
-int ii = 0;
-int iii = 0;
 
 // variaveis que irão guardar o sinal do sensor infravermelho 
 int leituraDez;
@@ -44,11 +38,11 @@ void loop ( ) {
  // caso o sinal seja alto, entrara e fará a contagem da moeda
   if (leituraDez == HIGH){	
   	digitalWrite(1,HIGH);
-    contUm ++;
-    for(i = 0; i<= contUm; i++){ // esse loop serve para garantir que apenas uma moeda tenha caido, pois existe uma propagação da transmissão do sinal (aparentemente XD)
+        contUm ++;
+    for( int i = 0; i<= contUm; i++){ // esse loop serve para garantir que apenas uma moeda tenha caido, pois existe uma propagação da transmissão do sinal (aparentemente XD)
       digitalWrite(1,HIGH); // sinal alto para ligar a led que representa a contagem da moeda
       delay(1000);
-	  lcd.setCursor(6,0); // posição onde a  quantidade sera exibida
+      lcd.setCursor(6,0); // posição onde a  quantidade sera exibida
       lcd.print(contUm);
       digitalWrite(1,LOW);
     }
@@ -58,10 +52,10 @@ void loop ( ) {
   }if(leituraCinquenta == HIGH){
    	digitalWrite(2,HIGH); 
    	contDois ++;
-    for(ii = 0; ii<= contDois; ii++){
+    for(int i = 0; i<= contDois; i++){
       digitalWrite(2,HIGH);
       delay(1000);
-	  lcd.setCursor(14,0);
+      lcd.setCursor(14,0);
       lcd.print(contDois);
       digitalWrite(2,LOW);
     }
@@ -71,10 +65,10 @@ void loop ( ) {
   }if(leituraCem == HIGH){
     digitalWrite(3,HIGH);
     contTres ++;
-    for(iii = 0; iii<= contTres; iii++){
+    for(int i = 0; i<= contTres; i++){
       digitalWrite(2,HIGH);
       delay(1000);
-	  lcd.setCursor(6,2);
+      lcd.setCursor(6,2);
       lcd.print(contTres);
       digitalWrite(3,LOW);
     }
@@ -85,7 +79,3 @@ void loop ( ) {
   }
 }
   
-
-
-
-
