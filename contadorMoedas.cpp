@@ -40,7 +40,7 @@ void loop ( ) {
   	digitalWrite(1,HIGH);
         contUm ++;
     for( int i = 0; i<= contUm; i++){ // esse loop serve para garantir que apenas uma moeda tenha caido, pois existe uma propagação da transmissão do sinal (aparentemente XD)
-      digitalWrite(1,HIGH); // sinal alto para ligar a led que representa a contagem da moeda
+      
       delay(1000);
       lcd.setCursor(6,0); // posição onde a  quantidade sera exibida
       lcd.print(contUm);
@@ -53,7 +53,6 @@ void loop ( ) {
    	digitalWrite(2,HIGH); 
    	contDois ++;
     for(int i = 0; i<= contDois; i++){
-      digitalWrite(2,HIGH);
       delay(1000);
       lcd.setCursor(14,0);
       lcd.print(contDois);
@@ -66,7 +65,6 @@ void loop ( ) {
     digitalWrite(3,HIGH);
     contTres ++;
     for(int i = 0; i<= contTres; i++){
-      digitalWrite(2,HIGH);
       delay(1000);
       lcd.setCursor(6,2);
       lcd.print(contTres);
